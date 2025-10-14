@@ -4672,3 +4672,28 @@ input, select, textarea {
 }
 
 
+/* Fix input visibility inside the contact form */
+#contact-form input,
+#contact-form textarea {
+  color: #222 !important;             /* Make typed text clearly visible */
+  background-color: #f7f7f7 !important; /* Light gray background for contrast */
+  border: 1px solid #ccc !important;
+  border-radius: 5px;
+  padding: 12px 15px;
+  width: 100%;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #888 !important; /* Make placeholder text visible too */
+}
+
+/* On focus */
+#contact-form input:focus,
+#contact-form textarea:focus {
+  background-color: #fff !important;
+  border-color: #651610 !important;
+  outline: none;
+}
