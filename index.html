@@ -123,7 +123,7 @@
         <p><strong>Email:</strong> <a href="mailto:adamslawchambers@gmail.com">adamslawchambers@gmail.com</a></p>
       </div>
 
-      <form
+     <form
   id="contact-form"
   action="https://formspree.io/f/mldpoqwe"
   method="POST"
@@ -155,20 +155,6 @@
     </div>
   </div>
 
-  <!-- Hidden input to redirect user after success -->
-  <input
-    type="hidden"
-    name="_next"
-    value="https://code-vygr.github.io/thank-you.html"
-  />
-
-  <!-- Hidden input to change email subject -->
-  <input
-    type="hidden"
-    name="_subject"
-    value="New Message from Website Contact Form"
-  />
-
   <ul class="actions">
     <li><input type="submit" value="Send Message" class="primary" /></li>
   </ul>
@@ -177,13 +163,14 @@
 </form>
 
 <script>
-  // Optional — prevent redirect to thank-you page if you want inline message
-  document.getElementById("contact-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const status = document.getElementById("form-status");
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
 
-    status.textContent = "⏳ Sending...";
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "⏳ Sending message...";
+    status.style.color = "#f0c674";
+
     try {
       const response = await fetch(form.action, {
         method: form.method,
@@ -198,7 +185,7 @@
       } else {
         const data = await response.json();
         status.textContent =
-          data.error || "❌ Failed to send message. Please try again later.";
+          data.error || "❌ Failed to send. Please try again later.";
         status.style.color = "red";
       }
     } catch (error) {
@@ -207,6 +194,7 @@
     }
   });
 </script>
+
 
 
       <p id="form-status" style="margin-top: 10px; color: #ccc;"></p>
