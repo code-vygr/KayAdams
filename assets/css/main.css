@@ -4441,53 +4441,61 @@ input, select, textarea {
   }
 }
 
-/* ----- Mobile Footer Alignment Fix ----- */
+/* ====== Footer Styling Fix ====== */
 #footer {
-  text-align: center;
   background-color: #651610;
-  padding: 30px 15px;
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #footer ul.icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-direction: row;
+  gap: 20px;
   margin-bottom: 15px;
-  flex-wrap: wrap;
 }
 
 #footer ul.icons li a {
   color: #ffffff;
-  font-size: 1.3em;
-  transition: transform 0.2s ease, color 0.2s ease;
+  font-size: 1.4em;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #footer ul.icons li a:hover {
-  color: #d4af37; /* gold-like hover tone */
+  color: #d4d4d4;
   transform: scale(1.1);
 }
 
 #footer ul.copyright {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: #f0f0f0;
+  text-align: center;
   font-size: 0.9em;
   line-height: 1.6;
-  text-align: center;
 }
 
-/* For mobile view */
-@media screen and (max-width: 768px) {
+/* Mobile fix */
+@media (max-width: 600px) {
+  #footer {
+    padding: 30px 15px;
+  }
+
   #footer ul.icons {
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
-  #footer ul.copyright li {
-    display: block;
-    margin: 5px 0;
+  #footer ul.copyright {
     text-align: center;
+    padding: 0 10px;
   }
 }
 
