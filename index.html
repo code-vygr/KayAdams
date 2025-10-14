@@ -114,7 +114,6 @@
       Get in touch with Kay Adams & Company Advocates. We’re ready to assist you with all your legal inquiries and representation needs.
     </p>
 
-    <!-- centerable row -->
     <div class="contact-container">
       <div class="contact-details">
         <h3>Our Office</h3>
@@ -124,108 +123,31 @@
         <p><strong>Email:</strong> <a href="mailto:adamslawchambers@gmail.com">adamslawchambers@gmail.com</a></p>
       </div>
 
-      <form id="contact-form">
-  <div class="fields">
-    <div class="field half">
-      <input type="text" id="name" name="from_name" placeholder="Your Name" required />
-    </div>
-    <div class="field half">
-      <input type="email" id="email" name="from_email" placeholder="Your Email" required />
-    </div>
-    <div class="field">
-      <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-    </div>
-  </div>
-  <ul class="actions">
-    <li><input type="submit" value="Send Message" class="primary" /></li>
-  </ul>
-</form>
+      <!-- ✅ Formspree contact form -->
+      <form action="https://formspree.io/f/mldpoqwe" method="POST">
+        <div class="fields">
+          <div class="field half">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="field half">
+            <input type="email" name="_replyto" placeholder="Your Email" required />
+          </div>
+          <div class="field">
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          </div>
+        </div>
 
-<!-- Success / Error messages -->
-<p id="form-status" style="margin-top: 10px;"></p>
+        <!-- Hidden fields -->
+        <input type="hidden" name="_subject" value="New Inquiry from Kay Adams Website">
+        <input type="hidden" name="_next" value="thankyou.html">
+        <input type="text" name="_gotcha" style="display:none">
 
+        <ul class="actions">
+          <li><input type="submit" value="Send Message" class="primary" /></li>
+        </ul>
+      </form>
 
-<!-- EmailJS Library -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<style>
-  /* ✅ Floating success/error notification styles */
-  #popup-message {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #222;
-    color: #fff;
-    padding: 15px 25px;
-    border-radius: 8px;
-    font-size: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    display: none;
-    z-index: 9999;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  #popup-message.show {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-<script>
- (function() {
-  emailjs.init("xE6dLMhCmDveM3Kmd"); // ✅ Your public key
-})();
-
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  showPopup("⏳ Sending message...", "#f0c674");
-
-  const formData = {
-    to_email: "georgekimani1000@gmail.com", // Fixed recipient
-    from_name: this.querySelector("[name=from_name]").value,
-    from_email: "georgekimani1000@gmail.com", // Your default "From" email
-    reply_to: this.querySelector("[name=from_email]").value, // User's email
-    message: this.querySelector("[name=message]").value
-  };
-
-  emailjs.send("service_8vfz6yr", "template_nlfsfic", formData)
-    .then(() => {
-      showPopup("✅ Message sent successfully!", "lightgreen");
-      this.reset();
-    })
-    .catch((error) => {
-      console.error("EmailJS error:", error);
-      showPopup("❌ Failed to send. Please try again later.", "red");
-    });
-});
-
-// ✅ Popup function
-function showPopup(message, color) {
-  let popup = document.getElementById("popup-message");
-  if (!popup) {
-    popup = document.createElement("div");
-    popup.id = "popup-message";
-    document.body.appendChild(popup);
-  }
-
-  popup.style.background = "#222";
-  popup.style.borderLeft = `5px solid ${color}`;
-  popup.innerHTML = message;
-  popup.classList.add("show");
-
-  setTimeout(() => {
-    popup.classList.remove("show");
-    popup.style.display = "none";
-  }, 3500);
-}
-</script>
-
-
-
-
+      <p id="form-status" style="margin-top: 10px; color: #ccc;"></p>
     </div>
   </div>
 </section>
@@ -254,13 +176,11 @@ function showPopup(message, color) {
   </ul>
 </footer>
 
-
 <!-- Font Awesome Icons -->
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 />
-	
 
 	</div>
 
