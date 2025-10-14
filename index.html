@@ -123,29 +123,91 @@
         <p><strong>Email:</strong> <a href="mailto:adamslawchambers@gmail.com">adamslawchambers@gmail.com</a></p>
       </div>
 
-      <!-- ✅ Formspree contact form -->
-      <form action="https://formspree.io/f/mldpoqwe" method="POST">
-        <div class="fields">
-          <div class="field half">
-            <input type="text" name="name" placeholder="Your Name" required />
-          </div>
-          <div class="field half">
-            <input type="email" name="_replyto" placeholder="Your Email" required />
-          </div>
-          <div class="field">
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          </div>
-        </div>
+      <form
+  id="contact-form"
+  action="https://formspree.io/f/mldpoqwe"
+  method="POST"
+>
+  <div class="fields">
+    <div class="field half">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+      />
+    </div>
+    <div class="field half">
+      <input
+        type="email"
+        name="_replyto"
+        placeholder="Your Email"
+        required
+      />
+    </div>
+    <div class="field">
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        rows="5"
+        required
+      ></textarea>
+    </div>
+  </div>
 
-        <!-- Hidden fields -->
-        <input type="hidden" name="_subject" value="New Inquiry from Kay Adams Website">
-        <input type="hidden" name="_next" value="thankyou.html">
-        <input type="text" name="_gotcha" style="display:none">
+  <!-- Hidden input to redirect user after success -->
+  <input
+    type="hidden"
+    name="_next"
+    value="https://code-vygr.github.io/thank-you.html"
+  />
 
-        <ul class="actions">
-          <li><input type="submit" value="Send Message" class="primary" /></li>
-        </ul>
-      </form>
+  <!-- Hidden input to change email subject -->
+  <input
+    type="hidden"
+    name="_subject"
+    value="New Message from Website Contact Form"
+  />
+
+  <ul class="actions">
+    <li><input type="submit" value="Send Message" class="primary" /></li>
+  </ul>
+
+  <p id="form-status" style="margin-top: 10px; color: #ccc;"></p>
+</form>
+
+<script>
+  // Optional — prevent redirect to thank-you page if you want inline message
+  document.getElementById("contact-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById("form-status");
+
+    status.textContent = "⏳ Sending...";
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        status.textContent = "✅ Message sent successfully!";
+        status.style.color = "lightgreen";
+        form.reset();
+      } else {
+        const data = await response.json();
+        status.textContent =
+          data.error || "❌ Failed to send message. Please try again later.";
+        status.style.color = "red";
+      }
+    } catch (error) {
+      status.textContent = "❌ Network error. Please try again.";
+      status.style.color = "red";
+    }
+  });
+</script>
+
 
       <p id="form-status" style="margin-top: 10px; color: #ccc;"></p>
     </div>
