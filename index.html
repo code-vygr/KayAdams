@@ -124,26 +124,49 @@
         <p><strong>Email:</strong> <a href="mailto:adamslawchambers@gmail.com">adamslawchambers@gmail.com</a></p>
       </div>
 
-      <form action="https://formsubmit.co/adamslawchambers@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="New message from Kay Adams & Co. Advocates website">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://code-vygr.github.io/success.html">
-
+      <form id="contact-form">
   <div class="fields">
     <div class="field half">
-      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" id="name" name="from_name" placeholder="Your Name" required />
     </div>
     <div class="field half">
-      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="email" id="email" name="from_email" placeholder="Your Email" required />
     </div>
     <div class="field">
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
     </div>
   </div>
   <ul class="actions">
     <li><input type="submit" value="Send Message" class="primary" /></li>
   </ul>
 </form>
+
+<!-- Success / Error messages -->
+<p id="form-status" style="margin-top: 10px;"></p>
+
+<!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  (function() {
+    emailjs.init("xE6dLMhCmDveM3Kmd"); // ← Replace this with your actual public key
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("from EmailJS service", "template_nlfsfic", this)
+      .then(function() {
+        document.getElementById("form-status").innerHTML = "✅ Message sent successfully!";
+        document.getElementById("form-status").style.color = "lightgreen";
+        e.target.reset();
+      }, function(error) {
+        document.getElementById("form-status").innerHTML = "❌ Failed to send. Try again.";
+        document.getElementById("form-status").style.color = "red";
+      });
+  });
+</script>
+
 
 
     </div>
