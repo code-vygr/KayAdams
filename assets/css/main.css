@@ -4594,39 +4594,45 @@ input, select, textarea {
 }
 
 
-/* --- Contact Form Styling (Improved appearance) --- */
+/* --- Contact Section Layout Fix --- */
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* Contact info styling */
+#contact .contact-info {
+  margin-bottom: 40px;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* Contact form styling */
 #contact-form {
-  max-width: 700px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-#contact-form .fields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-#contact-form .field {
-  flex: 1 1 100%;
-}
-
-#contact-form .field.half {
-  flex: 1 1 calc(50% - 10px);
-}
-
+/* Input + textarea styling */
 #contact-form input,
 #contact-form textarea {
   width: 100%;
-  padding: 14px 18px;
+  padding: 14px 16px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1em;
-  font-family: inherit;
+  font-size: 1rem;
   background: #f9f9f9;
-  transition: all 0.2s ease;
+  transition: 0.3s;
 }
 
 #contact-form input:focus,
@@ -4636,36 +4642,33 @@ input, select, textarea {
   outline: none;
 }
 
-#contact-form textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-/* Align the button */
+/* Submit button */
 #contact-form .actions {
   text-align: center;
-  margin-top: 10px;
 }
 
 #contact-form .actions input.primary {
   background: #651610;
-  border: none;
   color: #fff;
-  padding: 12px 30px;
-  border-radius: 5px;
-  font-weight: 600;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
 #contact-form .actions input.primary:hover {
-  background: #833020;
+  background: #812d1f;
 }
 
-/* --- Responsive for mobile --- */
-@media (max-width: 600px) {
-  #contact-form .field.half {
-    flex: 1 1 100%;
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  #contact {
+    padding: 40px 15px;
+  }
+  #contact-form {
+    padding: 20px;
   }
 }
+
 
