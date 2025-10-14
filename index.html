@@ -148,34 +148,73 @@
 <!-- EmailJS Library -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+<style>
+  /* ✅ Floating success/error notification styles */
+  #popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #222;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 9999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  #popup-message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
 <script>
-  // Initialize EmailJS
   (function() {
-    emailjs.init("xE6dLMhCmDveM3Kmd"); // 🔹 Replace with your actual Public Key (e.g. lHkS... from EmailJS)
+    emailjs.init("xE6dLMhCmDveM3Kmd"); // ✅ Your public key
   })();
 
-  // Handle form submission
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent page reload or redirect
+  const form = document.getElementById("contact-form");
 
-    const status = document.getElementById("form-status");
-    status.innerHTML = "⏳ Sending message...";
-    status.style.color = "#f0c674";
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    showPopup("⏳ Sending message...", "#f0c674");
 
     emailjs.sendForm("service_8vfz6yr", "template_nlfsfic", this)
       .then(() => {
-        status.innerHTML = "✅ Message sent successfully!";
-        status.style.color = "lightgreen";
+        showPopup("✅ Message sent successfully!", "lightgreen");
         this.reset();
-        history.replaceState(null, null, location.href); // ✅ Prevent any accidental reload/redirect
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        status.innerHTML = "❌ Failed to send. Please try again later.";
-        status.style.color = "red";
+        showPopup("❌ Failed to send. Please try again later.", "red");
       });
   });
+
+  // ✅ Popup function
+  function showPopup(message, color) {
+    let popup = document.getElementById("popup-message");
+    if (!popup) {
+      popup = document.createElement("div");
+      popup.id = "popup-message";
+      document.body.appendChild(popup);
+    }
+
+    popup.style.background = "#222";
+    popup.style.borderLeft = `5px solid ${color}`;
+    popup.innerHTML = message;
+    popup.classList.add("show");
+
+    setTimeout(() => {
+      popup.classList.remove("show");
+      popup.style.display = "none";
+    }, 3500);
+  }
 </script>
+
 
 
 
