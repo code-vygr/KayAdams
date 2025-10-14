@@ -144,18 +144,19 @@
 <!-- Success / Error messages -->
 <p id="form-status" style="margin-top: 10px;"></p>
 
+
 <!-- EmailJS Library -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
   // Initialize EmailJS
   (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your real public key
+    emailjs.init("YOUR_PUBLIC_KEY"); // 🔹 Replace with your actual Public Key (e.g. lHkS... from EmailJS)
   })();
 
   // Handle form submission
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault(); // prevent page reload
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page reload or redirect
 
     const status = document.getElementById("form-status");
     status.innerHTML = "⏳ Sending message...";
@@ -165,17 +166,16 @@
       .then(() => {
         status.innerHTML = "✅ Message sent successfully!";
         status.style.color = "lightgreen";
-        e.target.reset(); // clear form
+        this.reset();
+        history.replaceState(null, null, location.href); // ✅ Prevent any accidental reload/redirect
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("EmailJS error:", error);
         status.innerHTML = "❌ Failed to send. Please try again later.";
         status.style.color = "red";
       });
-
-    return false; // <— stops any redirect
   });
 </script>
-
 
 
 
