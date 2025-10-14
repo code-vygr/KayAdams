@@ -4593,21 +4593,79 @@ input, select, textarea {
   background-color: #0056b3;
 }
 
-/* Fix contact form inputs not clickable on desktop */
-#contact, 
-#contact * {
-  position: relative;
-  z-index: 2;
+
+/* --- Contact Form Styling (Improved appearance) --- */
+#contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.contact-section {
-  position: relative;
-  background: #fff;
+#contact-form .fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#contact-form .field {
+  flex: 1 1 100%;
+}
+
+#contact-form .field.half {
+  flex: 1 1 calc(50% - 10px);
 }
 
 #contact-form input,
 #contact-form textarea {
-  position: relative;
-  z-index: 3;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  font-family: inherit;
+  background: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #651610;
+  background: #fff;
+  outline: none;
+}
+
+#contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Align the button */
+#contact-form .actions {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#contact-form .actions input.primary {
+  background: #651610;
+  border: none;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#contact-form .actions input.primary:hover {
+  background: #833020;
+}
+
+/* --- Responsive for mobile --- */
+@media (max-width: 600px) {
+  #contact-form .field.half {
+    flex: 1 1 100%;
+  }
 }
 
