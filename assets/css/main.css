@@ -4671,91 +4671,209 @@ input, select, textarea {
   }
 }
 
-
-/* Fix input visibility inside the contact form */
-#contact-form input,
-#contact-form textarea {
-  color: #222 !important;             /* Make typed text clearly visible */
-  background-color: #f7f7f7 !important; /* Light gray background for contrast */
-  border: 1px solid #ccc !important;
-  border-radius: 5px;
-  padding: 12px 15px;
-  width: 100%;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-#contact-form input::placeholder,
-#contact-form textarea::placeholder {
-  color: #888 !important; /* Make placeholder text visible too */
-}
-
-/* On focus */
-#contact-form input:focus,
-#contact-form textarea:focus {
-  background-color: #fff !important;
-  border-color: #651610 !important;
-  outline: none;
-}
-
-/* Contact section background and overall styling */
+/* ===== Centered Contact Section ===== */
 .contact-section {
-  background-color: #2b2b2b; /* dark gray */
-  color: #ffffff; /* white text */
-  padding: 60px 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  max-width: 800px;
-  margin: 60px auto;
-}
-
-/* Input and textarea styling */
-#contact-form input,
-#contact-form textarea {
-  background-color: #3a3a3a; /* slightly lighter gray for contrast */
-  color: #ffffff; /* keep text white */
-  border: 1px solid #555;
-  border-radius: 6px;
-  padding: 12px 15px;
-  width: 100%;
-  font-size: 15px;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-}
-
-#contact-form input::placeholder,
-#contact-form textarea::placeholder {
-  color: #bbbbbb;
-}
-
-/* On focus */
-#contact-form input:focus,
-#contact-form textarea:focus {
-  background-color: #444;
-  border-color: #a3261f; /* accent color matching your theme */
-  outline: none;
-}
-
-/* Submit button styling */
-#contact-form input[type="submit"] {
-  background-color: #a3261f;
+  background: #111;
   color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 25px;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#contact-form input[type="submit"]:hover {
-  background-color: #c7372c;
-}
-
-/* Center the form content */
-.contact-section h2,
-#form-status {
+  padding: 80px 20px;
   text-align: center;
 }
+
+/* container wrapper */
+.contact-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* row that holds the two boxes — centered and responsive */
+.contact-container,
+.contact-grid { /* support both class names if either used */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* <-- centers children horizontally */
+  align-items: flex-start;
+  gap: 32px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 760px;         /* fits two 320px boxes + gap; change if you change box widths */
+}
+
+/* make both boxes identical width and responsive */
+.contact-details,
+.contact-form {
+  width: 320px;
+  min-width: 260px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 22px;
+  text-align: left;
+}
+
+/* inputs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+}
+
+/* button */
+.btn-contact {
+  display: inline-block;
+  background: #444;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ensure long lines (like email) wrap inside the box */
+.contact-details p,
+.contact-details a {
+  color: #ccc;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* small screens: stack and center */
+@media (max-width: 768px) {
+  .contact-container,
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+    max-width: 420px;
+  }
+
+  .contact-details,
+  .contact-form {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  .contact-details p,
+  .contact-details a {
+    text-align: center;
+  }
+}
+
+
+/* ==============================
+   FOOTER SECTION
+   ============================== */
+.footer {
+  background: #651610; /* Deep maroon base */
+  color: #f1f1f1;
+  padding: 60px 20px 30px;
+  text-align: center;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.4s ease;
+}
+
+/* Slight darkening hover effect */
+.footer:hover {
+  background: #4f0f0c; /* Subtle darker tone for depth */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-info {
+  max-width: 380px;
+  text-align: left;
+}
+
+.footer-info h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-info p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 6px 0;
+}
+
+.footer-info a {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-info a:hover {
+  color: #fff;
+}
+
+/* Social icons */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.footer-social a {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f1f1;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.footer-social a:hover {
+  background: #fff;
+  color: #651610;
+  transform: translateY(-3px);
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
+  padding-top: 15px;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+}
+
 
