@@ -4441,22 +4441,18 @@ input, select, textarea {
   }
 }
 
-/* ====== Footer Styling (Perfectly Centered for All Devices) ====== */
+/* ===== Footer Styling ===== */
 #footer {
   background-color: #651610;
   color: #ffffff;
   text-align: center;
   padding: 50px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 #footer h3 {
   font-size: 1.3em;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 
@@ -4465,12 +4461,8 @@ input, select, textarea {
   line-height: 1.6;
   max-width: 500px;
   text-align: center;
-}
-
-#footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #footer ul.icons {
@@ -4478,8 +4470,9 @@ input, select, textarea {
   justify-content: center;
   align-items: center;
   gap: 25px;
-  margin: 25px 0 10px 0;
+  margin: 20px 0;
   padding: 0;
+  list-style: none;
 }
 
 #footer ul.icons li {
@@ -4501,10 +4494,12 @@ input, select, textarea {
   margin-top: 15px;
   font-size: 0.9em;
   opacity: 0.85;
+  list-style: none;
+  padding: 0;
   text-align: center;
 }
 
-/* ===== Responsive Fix for Small Phones ===== */
+/* ===== Responsive Fix for Phones ===== */
 @media (max-width: 600px) {
   #footer {
     padding: 40px 15px;
