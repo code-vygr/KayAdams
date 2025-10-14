@@ -4530,5 +4530,67 @@ input, select, textarea {
   }
 }
 
+/* === Default Contact Form Styles === */
+#contact-form {
+  width: 100%;
+  max-width: 450px;
+}
+
+#contact-form .fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#contact-form .field {
+  flex: 1 1 100%;
+}
+
+#contact-form .field.half {
+  flex: 1 1 calc(50% - 10px);
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background: #fff;
+}
+
+#contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#contact-form .actions {
+  margin-top: 10px;
+}
+
+#contact-form .primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+#contact-form .primary:hover {
+  background-color: #0056b3;
+}
 
 
