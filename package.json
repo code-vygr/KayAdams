@@ -1,7 +1,7 @@
 {
-  "name": "law-firm-website",
+  "name": "kay-adams-law-firm-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "Official website for Kay Adams & Company Advocates — Commissioner for Oaths and Notary Public in Nairobi.",
   "main": "index.html",
   "scripts": {
     "start": "serve",
@@ -9,15 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jricarte/law-firm-website.git"
+    "url": "git+https://github.com/CodeVoyager/kay-adams-law-firm.git"
   },
-  "keywords": [],
-  "author": "Jordan Ricarte",
+  "keywords": [
+    "law",
+    "advocates",
+    "legal",
+    "firm",
+    "nairobi",
+    "notary",
+    "commissioner-for-oaths"
+  ],
+  "author": "George Kimani (CodeVoyager)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jricarte/law-firm-website/issues"
+    "url": "https://github.com/CodeVoyager/kay-adams-law-firm/issues"
   },
-  "homepage": "https://github.com/jricarte/law-firm-website#readme",
+  "homepage": "https://github.com/CodeVoyager/kay-adams-law-firm#readme",
   "dependencies": {
     "serve": "^10.0.1"
   }
