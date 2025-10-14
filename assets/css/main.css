@@ -4441,3 +4441,53 @@ input, select, textarea {
   }
 }
 
+/* ----- Mobile Footer Alignment Fix ----- */
+#footer {
+  text-align: center;
+  background-color: #651610;
+  padding: 30px 15px;
+}
+
+#footer ul.icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+#footer ul.icons li a {
+  color: #ffffff;
+  font-size: 1.3em;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#footer ul.icons li a:hover {
+  color: #d4af37; /* gold-like hover tone */
+  transform: scale(1.1);
+}
+
+#footer ul.copyright {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #f0f0f0;
+  font-size: 0.9em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* For mobile view */
+@media screen and (max-width: 768px) {
+  #footer ul.icons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #footer ul.copyright li {
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+  }
+}
+
