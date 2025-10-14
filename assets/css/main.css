@@ -4441,12 +4441,12 @@ input, select, textarea {
   }
 }
 
-/* ====== Footer Styling (Fixed Center Alignment) ====== */
+/* ====== Footer Styling (Perfectly Centered for All Devices) ====== */
 #footer {
   background-color: #651610;
   color: #ffffff;
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4454,14 +4454,17 @@ input, select, textarea {
 }
 
 #footer h3 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 #footer p {
-  margin: 5px 0;
+  margin: 6px 0;
   line-height: 1.6;
+  max-width: 500px;
+  text-align: center;
 }
 
 #footer ul {
@@ -4475,42 +4478,61 @@ input, select, textarea {
   justify-content: center;
   align-items: center;
   gap: 25px;
-  margin: 20px 0;
+  margin: 25px 0 10px 0;
   padding: 0;
+}
+
+#footer ul.icons li {
+  display: inline-block;
 }
 
 #footer ul.icons li a {
   color: #ffffff;
-  font-size: 1.5em;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 1.6em;
+  transition: all 0.3s ease;
 }
 
 #footer ul.icons li a:hover {
   color: #d4d4d4;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 #footer ul.copyright {
-  margin-top: 10px;
-  text-align: center;
+  margin-top: 15px;
   font-size: 0.9em;
-  opacity: 0.9;
+  opacity: 0.85;
+  text-align: center;
 }
 
-/* Mobile Fix */
+/* ===== Responsive Fix for Small Phones ===== */
 @media (max-width: 600px) {
   #footer {
-    padding: 30px 15px;
+    padding: 40px 15px;
+  }
+
+  #footer h3 {
+    font-size: 1.1em;
+  }
+
+  #footer p {
+    font-size: 0.95em;
+    max-width: 90%;
   }
 
   #footer ul.icons {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
+  }
+
+  #footer ul.icons li a {
+    font-size: 1.8em;
   }
 
   #footer ul.copyright {
-    padding: 0 10px;
     text-align: center;
+    padding: 0 10px;
   }
 }
+
 
