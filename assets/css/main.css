@@ -4441,33 +4441,47 @@ input, select, textarea {
   }
 }
 
-/* ====== Footer Styling Fix ====== */
+/* ====== Footer Styling (Fixed Center Alignment) ====== */
 #footer {
   background-color: #651610;
   color: #ffffff;
   text-align: center;
   padding: 40px 20px;
-}
-
-#footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+#footer h3 {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#footer p {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 #footer ul.icons {
-  flex-direction: row;
-  gap: 20px;
-  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 20px 0;
+  padding: 0;
 }
 
 #footer ul.icons li a {
   color: #ffffff;
-  font-size: 1.4em;
+  font-size: 1.5em;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -4477,12 +4491,13 @@ input, select, textarea {
 }
 
 #footer ul.copyright {
+  margin-top: 10px;
   text-align: center;
   font-size: 0.9em;
-  line-height: 1.6;
+  opacity: 0.9;
 }
 
-/* Mobile fix */
+/* Mobile Fix */
 @media (max-width: 600px) {
   #footer {
     padding: 30px 15px;
@@ -4494,8 +4509,8 @@ input, select, textarea {
   }
 
   #footer ul.copyright {
-    text-align: center;
     padding: 0 10px;
+    text-align: center;
   }
 }
 
