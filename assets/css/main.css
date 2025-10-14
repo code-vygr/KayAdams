@@ -4530,4 +4530,49 @@ input, select, textarea {
   }
 }
 
+/* === Contact Form Input Styling === */
+#contact-form .field input,
+#contact-form .field textarea {
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 1.05rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover / Focus effects */
+#contact-form .field input:focus,
+#contact-form .field textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+  background: #fff;
+  outline: none;
+}
+
+/* Make text area larger */
+#contact-form textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+/* Space between form fields */
+#contact-form .field {
+  margin-bottom: 18px;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+#contact-form {
+  flex: 1;
+  min-width: 320px;
+  max-width: 550px;
+}
+
 
