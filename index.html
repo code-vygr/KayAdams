@@ -172,47 +172,55 @@
 </style>
 
 <script>
-  (function() {
-    emailjs.init("xE6dLMhCmDveM3Kmd"); // ✅ Your public key
-  })();
+ (function() {
+  emailjs.init("xE6dLMhCmDveM3Kmd"); // ✅ Your public key
+})();
 
-  const form = document.getElementById("contact-form");
+const form = document.getElementById("contact-form");
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
 
-    showPopup("⏳ Sending message...", "#f0c674");
+  showPopup("⏳ Sending message...", "#f0c674");
 
-    emailjs.sendForm("service_8vfz6yr", "template_nlfsfic", this)
-      .then(() => {
-        showPopup("✅ Message sent successfully!", "lightgreen");
-        this.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        showPopup("❌ Failed to send. Please try again later.", "red");
-      });
-  });
+  const formData = {
+    to_email: "georgekimani1000@gmail.com", // Fixed recipient
+    from_name: this.querySelector("[name=from_name]").value,
+    from_email: "georgekimani1000@gmail.com", // Your default "From" email
+    reply_to: this.querySelector("[name=from_email]").value, // User's email
+    message: this.querySelector("[name=message]").value
+  };
 
-  // ✅ Popup function
-  function showPopup(message, color) {
-    let popup = document.getElementById("popup-message");
-    if (!popup) {
-      popup = document.createElement("div");
-      popup.id = "popup-message";
-      document.body.appendChild(popup);
-    }
+  emailjs.send("service_8vfz6yr", "template_nlfsfic", formData)
+    .then(() => {
+      showPopup("✅ Message sent successfully!", "lightgreen");
+      this.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS error:", error);
+      showPopup("❌ Failed to send. Please try again later.", "red");
+    });
+});
 
-    popup.style.background = "#222";
-    popup.style.borderLeft = `5px solid ${color}`;
-    popup.innerHTML = message;
-    popup.classList.add("show");
-
-    setTimeout(() => {
-      popup.classList.remove("show");
-      popup.style.display = "none";
-    }, 3500);
+// ✅ Popup function
+function showPopup(message, color) {
+  let popup = document.getElementById("popup-message");
+  if (!popup) {
+    popup = document.createElement("div");
+    popup.id = "popup-message";
+    document.body.appendChild(popup);
   }
+
+  popup.style.background = "#222";
+  popup.style.borderLeft = `5px solid ${color}`;
+  popup.innerHTML = message;
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+    popup.style.display = "none";
+  }, 3500);
+}
 </script>
 
 
