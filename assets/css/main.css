@@ -4593,4 +4593,21 @@ input, select, textarea {
   background-color: #0056b3;
 }
 
+/* Fix contact form inputs not clickable on desktop */
+#contact, 
+#contact * {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-section {
+  position: relative;
+  background: #fff;
+}
+
+#contact-form input,
+#contact-form textarea {
+  position: relative;
+  z-index: 3;
+}
 
