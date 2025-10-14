@@ -151,7 +151,7 @@
 <script>
   // Initialize EmailJS
   (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // 🔹 Replace with your actual Public Key (e.g. lHkS... from EmailJS)
+    emailjs.init("xE6dLMhCmDveM3Kmd"); // 🔹 Replace with your actual Public Key (e.g. lHkS... from EmailJS)
   })();
 
   // Handle form submission
@@ -162,7 +162,7 @@
     status.innerHTML = "⏳ Sending message...";
     status.style.color = "#f0c674";
 
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+    emailjs.sendForm("service_8vfz6yr", "template_nlfsfic", this)
       .then(() => {
         status.innerHTML = "✅ Message sent successfully!";
         status.style.color = "lightgreen";
