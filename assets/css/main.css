@@ -4697,3 +4697,65 @@ input, select, textarea {
   border-color: #651610 !important;
   outline: none;
 }
+
+/* Contact section background and overall styling */
+.contact-section {
+  background-color: #2b2b2b; /* dark gray */
+  color: #ffffff; /* white text */
+  padding: 60px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 60px auto;
+}
+
+/* Input and textarea styling */
+#contact-form input,
+#contact-form textarea {
+  background-color: #3a3a3a; /* slightly lighter gray for contrast */
+  color: #ffffff; /* keep text white */
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 12px 15px;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #bbbbbb;
+}
+
+/* On focus */
+#contact-form input:focus,
+#contact-form textarea:focus {
+  background-color: #444;
+  border-color: #a3261f; /* accent color matching your theme */
+  outline: none;
+}
+
+/* Submit button styling */
+#contact-form input[type="submit"] {
+  background-color: #a3261f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#contact-form input[type="submit"]:hover {
+  background-color: #c7372c;
+}
+
+/* Center the form content */
+.contact-section h2,
+#form-status {
+  text-align: center;
+}
+
